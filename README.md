@@ -1,3 +1,6 @@
 # GradeOnline
-Name: Fenting Lin
-contact: fen@pdx.edu
+Name: Fenting Lin <br />
+contact: fen@pdx.edu <br />
+
+<br/>
+This project is a web page about upload grade to websit. 
