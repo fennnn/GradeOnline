@@ -1,0 +1,118 @@
+<!-- Copyright (c) 2018 Fenting Lin -->
+<!-- GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <title>Add Student</title>
+
+    <style type="text/css">
+        .navbar {
+            margin-bottom:30px;
+        }
+        .img{
+            height: 15px;
+            width: 15px;
+        }
+        .hori{
+            position: absolute;
+            width: 1px;
+            height: 580px;
+            margin-left: 200px;
+            background-color:black;
+        }
+        .percent{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="Home.html" ><h2>Grade Online</h2></a>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="Home.html" >Course List</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="AddCourse.html" >Add Course</a></li>
+            </ul>
+
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html" style="font-weight:bold">Login/Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class = "row">
+            <div class = "col-lg-6">
+                <div class="container">
+                    <br>
+                    <h1 class="text-success" style="font-weight:bold">Add Student</h1>
+                    <br>
+                    <p>
+                        Add cource here. <br>
+                        Enter the student name, student ID number.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr color="black">
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6">
+                <form class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label text-right" style="font-weight: bold">Student Name:</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label text-right" style="font-weight: bold">E-mail:</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label text-right" style="font-weight: bold">Student ID Number:</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="number">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 text-center" style="font-weight: bold">
+                            <br>
+                            <button class="btn btn-primary" style="font-weight:bold" onclick="save()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript">
+        function save(){
+            var nameValue = document.getElementById('name').value;
+            sessionStorage.setItem('studentName',nameValue)
+            
+            var idValue = document.getElementById('number').value;
+            sessionStorage.setItem('studentId',idValue)
+            
+            var mail = document.getElementById('email').value;
+            sessionStorage.setItem('mail',mail)
+            
+            window.location.href='Course.html';
+            window.event.returnValue=false;
+    }
+    </script>
+</html>

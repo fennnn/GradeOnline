@@ -1,0 +1,124 @@
+<!-- Copyright (c) 2018 Fenting Lin -->
+<!-- GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- I used those codes from exercise - bootstrap - 3-form.html -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Course</title>
+
+    <style type="text/css">
+        .navbar {
+            margin-bottom:60px;
+        }
+
+        .container{
+            padding-left: 150px;
+
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="Home.html" ><h2>Grade Online</h2></a>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="Home.html" >Course List</a></li>
+                <li class="nav-item"><a class="nav-link" href="AddCourse.html" >Add Course</a></li>
+            </ul>
+
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html" style="font-weight:bold">Login/Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container container-expand-lg">
+        <h1 class="text-success" style="font-weight:bold" id="showName"></h1>
+        <br>
+        <button class="btn btn-primary" onclick="update()" type="button">Update Grade</button>
+        <button class="btn btn-primary" onclick="send()" type="button">Send Grade</button>
+        <hr color="black">
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item" style="font-weight: bold">
+                <div class="row">
+                    <div class="col-lg-4">
+                        Grade Item
+                    </div>
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4" style="font-weight: bold">
+                        Grade
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item" id="list">
+            </li>
+        </ul>
+        <div class="form-group row">
+            <div class="col-lg-10 text-center" style="font-weight: bold">
+                <br>
+                <button class="btn btn-primary" onclick="save()" type="button">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function send(){
+        var course = sessionStorage.getItem('courseName')
+        var number = sessionStorage.getItem('courseNumber')
+        var name = sessionStorage.getItem('studentName')
+        var grade = sessionStorage.getItem('grade');
+        var item = sessionStorage.getItem('courseItem')
+        var mail = sessionStorage.getItem('mail');
+        
+        var percent = sessionStorage.getItem('courseItemPercent')
+        var content = "Hi, "+ name +". \nYour "+ item+ " grade is: "+ grade+" / "+percent;
+        
+        var sub = number+" "+course+" Grade Update"
+        location="mailto:"+mail+"?subject="+sub+"&body="+content;
+    }
+    function save(){
+        sessionStorage.setItem('grade',document.getElementById('temp').value);
+        var item = sessionStorage.getItem('courseItem')
+        var percent = sessionStorage.getItem('courseItemPercent')
+        var grade = sessionStorage.getItem('grade');
+        var HtmlValue = '<div class="row">'+
+                        '<div class="col-lg-4">'+ item+'</div>'+
+                        '<div class="col-lg-4">'+'</div>'+
+                        '<div class="col-lg-4">'+ grade +' / ' + percent +'</div>'+
+                    '</div>'
+        document.getElementById('list').innerHTML = HtmlValue;
+    }
+    function update(){
+        var add = '<input type="text" id="temp">'
+        jQuery('#grade').prepend(add);
+    }
+    
+    var name = sessionStorage.getItem('studentName')
+    var item = sessionStorage.getItem('courseItem')
+    var percent = sessionStorage.getItem('courseItemPercent')
+    var grade = sessionStorage.getItem('grade');
+    var HtmlValue = '<div class="row">'+
+                        '<div class="col-lg-4">'+ item+'</div>'+
+                        '<div class="col-lg-4">'+'</div>'+
+                        '<div class="col-lg-4" id="grade">' +grade+' / ' +percent+'</div>'+
+                     '</div>'
+    document.getElementById('list').innerHTML = HtmlValue;
+    document.getElementById('showName').innerHTML = name;
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!-- Copyright (c) 2018 Fenting Lin -->
+<!-- GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- I used those codes from exercise - bootstrap - 3-form.html -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Course</title>
+
+    <style type="text/css">
+        .navbar {
+            margin-bottom:60px;
+        }
+
+        .container{
+            padding-left: 150px;
+        }
+        .student-container{
+            padding-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="Home.html" ><h2>Grade Online</h2></a>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="Home.html" >Course List</a></li>
+                <li class="nav-item"><a class="nav-link" href="AddCourse.html" >Add Course</a></li>
+            </ul>
+
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="Register.html" style="font-weight:bold">Login/Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container container-expand-lg">
+        <h1 class="text-success" style="font-weight:bold" id="showCourse"></h1>
+        <br>
+        <a class="btn btn-primary" href="AddStudent.html">Add student</a>
+        <hr color="black">
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item" style="font-weight: bold">
+                <div class="row">
+                    <div class="col-lg-4">
+                        Student
+                    </div>
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4" style="font-weight: bold">
+                        ID
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item" id="list">
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    var course = sessionStorage.getItem('courseName')
+    document.getElementById('showCourse').innerHTML = course;
+    
+    var name = sessionStorage.getItem('studentName')
+    var number = sessionStorage.getItem('studentId')
+
+    if(name&&number){
+        var HtmlValue = '<div class="row">'+
+                        '<div class="col-lg-4">'+ '<a class="link" href="Student.html" style="font-size: 18px">'+ name+ '</a>'+'</div>'+
+                        '<div class="col-lg-4">'+'</div>'+
+                        '<div class="col-lg-4">'+ number+'</div>'+
+                    '</div>'
+    }else
+        var HtmlValue = ''
+    document.getElementById('list').innerHTML = HtmlValue;
+</script>
+</html>

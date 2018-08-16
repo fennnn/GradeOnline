@@ -1,0 +1,146 @@
+<!-- Copyright (c) 2018 Fenting Lin -->
+<!-- GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css"/>
+
+    <title>Add Course</title>
+
+    <style type="text/css">
+        .navbar {
+            margin-bottom:30px;
+        }
+        .img{
+            height: 15px;
+            width: 15px;
+        }
+        .hori{
+            position: absolute;
+            width: 1px;
+            height: 580px;
+            margin-left: 200px;
+            background-color:black;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="Home.html" ><h2>Grade Online</h2></a>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="Home.html" >Course List</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="AddCourse.html" >Add Course</a></li>
+            </ul>
+
+            <ul class="navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html" style="font-weight:bold">Login/Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class = "row">
+            
+            <div class = "col-lg-6">
+                <div class="container">
+                    <br>
+                    <h1 class="text-success" style="font-weight:bold">Add Course</h1>
+                    <br>
+                    <p>
+                        Add cource here. <br>
+                        Enter the course name, course number and the precentage.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr color="black">
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6">
+                <form class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label text-right" style="font-weight: bold" >Course Name:</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="course">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label text-right" style="font-weight: bold" >Course Number:</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="number">
+                        </div>
+                    </div>
+                    <div class="form-group row" id="grade">
+                        <label class="col-sm-4 col-form-label text-right" style="font-weight: bold">Grade Item:</label>
+                        
+                        <div class="col-sm-5">
+                            <input class="form-control" type="text" placeholder="quiz/midtem/final" id="item">
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input class="form-control" type="text" id="percent">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<button class="btn btn-primary" onclick="add()" type="button">+</button>-->
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 text-center" style="font-weight: bold">
+                            <br>
+                            <button style="font-weight:bold" onclick="save()" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript">
+        var index=0;
+        function add(){
+            index++;
+            var idd = 'item'+index;
+            var HtmlValue = '<div class = "col-sm-4">'+'</div>'+
+                            '<div class="col-sm-4">'+
+                                '<input class="form-control" type="text" placeholder="quiz/midtem/final" id="addItem">'+
+                            '</div>'+
+                            '<div class="col-sm-3">'+
+                                '<div class="input-group">' +
+                                    '<input class="form-control" type="text" id="'+ idd +'">'+
+                                    '<div class="input-group-append">'+
+                                        '<span class="input-group-text">%</span>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<button class="btn btn-primary" onclick="add()" type="button">+</button>'
+            jQuery('#grade').append(HtmlValue);
+        }
+        function save(){
+            var nameValue = document.getElementById('course').value;
+            sessionStorage.setItem('courseName',nameValue);
+           
+            var numValue = document.getElementById('number').value;
+            sessionStorage.setItem('courseNumber',numValue);
+    
+            var itemValue = document.getElementById('item').value;
+            sessionStorage.setItem('courseItem', itemValue);
+            
+            var percentValue = document.getElementById('percent').value;
+            sessionStorage.setItem('courseItemPercent', percentValue);
+            
+            window.location.href='Home.html';
+            window.event.returnValue=false;
+    }
+    </script>
+</html>
