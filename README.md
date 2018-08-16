@@ -1,6 +1,7 @@
 # GradeOnline
 Name: Fenting Lin <br />
 Contact: fen@pdx.edu <br />
+copyright (c) 2018 Fenting Lin<br/>
 
 <br/>[Project Description]<br/>
 This project is a web page about upload grade to websit. I used 'sessionStorage' to store the data instead of using a database. <br/>
