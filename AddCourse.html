@@ -107,25 +107,6 @@
     </div>
 </body>
     <script type="text/javascript">
-        var index=0;
-        function add(){
-            index++;
-            var idd = 'item'+index;
-            var HtmlValue = '<div class = "col-sm-4">'+'</div>'+
-                            '<div class="col-sm-4">'+
-                                '<input class="form-control" type="text" placeholder="quiz/midtem/final" id="addItem">'+
-                            '</div>'+
-                            '<div class="col-sm-3">'+
-                                '<div class="input-group">' +
-                                    '<input class="form-control" type="text" id="'+ idd +'">'+
-                                    '<div class="input-group-append">'+
-                                        '<span class="input-group-text">%</span>'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                            '<button class="btn btn-primary" onclick="add()" type="button">+</button>'
-            jQuery('#grade').append(HtmlValue);
-        }
         function save(){
             var nameValue = document.getElementById('course').value;
             sessionStorage.setItem('courseName',nameValue);
