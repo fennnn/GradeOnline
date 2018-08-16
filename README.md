@@ -12,3 +12,7 @@ grade item and grade percentage. There is 'null' grade at first, so click update
 Using git clone download this project to a local machine. First, make sure the node/express get installed. Run the 'sever.js' to connect to server.<br/>
 
 [Legal]<br/>
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+<br/>
+Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
