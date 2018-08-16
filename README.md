@@ -1,2 +1,3 @@
 # GradeOnline
-Fenting Lin
+Name: Fenting Lin
+contact: fen@pdx.edu
